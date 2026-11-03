@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="NEON GRID — Cyber Tic-Tac-Toe: Jogo da Velha para dois jogadores locais.">
+  <title>NEON GRID — Cyber Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+
+    <!-- Cabeçalho / identidade visual -->
+    <header class="hero">
+      <p class="hero__tag" aria-hidden="true">// SYS.ONLINE &middot; 2 JOGADORES LOCAIS</p>
+      <h1 class="title">NEON GRID</h1>
+      <p class="subtitle">Cyber Tic-Tac-Toe</p>
+    </header>
+
+    <!-- RF07: placar com três indicadores separados -->
+    <section class="scoreboard" aria-label="Placar da sessão">
+      <div class="score score--x">
+        <span class="score__label">Vitórias X</span>
+        <span class="score__value" id="score-x">0</span>
+      </div>
+      <div class="score score--draw">
+        <span class="score__label">Empates</span>
+        <span class="score__value" id="score-draw">0</span>
+      </div>
+      <div class="score score--o">
+        <span class="score__label">Vitórias O</span>
+        <span class="score__value" id="score-o">0</span>
+      </div>
+    </section>
+
+    <!-- Indicador de turno / resultado (RNF05: role="status" + aria-live="polite") -->
+    <div class="banner" id="turn-banner" role="status" aria-live="polite" data-player="X" data-status="playing">
+      <span class="banner__badge" id="banner-badge" aria-hidden="true">X</span>
+      <span class="banner__text" id="banner-text">AGUARDANDO JOGADOR X</span>
+    </div>
+
+    <!-- RF01: tabuleiro 3x3 (as 9 células são criadas pela GameView) -->
+    <section class="panel">
+      <div class="board" id="board" role="group" aria-label="Tabuleiro do jogo da velha, três linhas por três colunas" data-turn="X" data-status="playing"></div>
+    </section>
+
+    <!-- Feedback de jogada inválida (RF04) -->
+    <p class="feedback" id="feedback" aria-live="polite"></p>
+
+    <!-- RF06 e RF08 -->
+    <div class="controls">
+      <button type="button" class="btn btn--primary" id="btn-new-game">Nova partida</button>
+      <button type="button" class="btn btn--danger" id="btn-reset-scores">Zerar placar</button>
+    </div>
+
+    <footer class="footer">
+      <p>// Navegue com Tab &middot; jogue com Enter ou Espaço</p>
+    </footer>
+  </main>
+
+  <noscript>
+    <p class="noscript">Este jogo precisa de JavaScript habilitado para funcionar.</p>
+  </noscript>
+</body>
+</html>
