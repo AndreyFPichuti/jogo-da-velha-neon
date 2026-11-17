@@ -294,6 +294,9 @@ class GameView {
 
   clearFeedback() {
     this.feedbackEl.textContent = '';
+    // Remove a borda de alerta das células, sem depender do evento "animationend"
+    // (que não dispara quando as animações estão desativadas, ex.: prefers-reduced-motion).
+    this.cells.forEach(({ button }) => button.classList.remove('is-invalid'));
   }
 
   /** Reinicia uma animação CSS: remove a classe, força reflow e adiciona de novo. */
